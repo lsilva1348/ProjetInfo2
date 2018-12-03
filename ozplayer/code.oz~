@@ -33,6 +33,32 @@ local
       end
    end
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+   fun {Transforme Partition X} %Applique une transformation X a la partition%
+      case X of nil then nil
+      [] Duration then {Duration Partition }
+      end
+   end
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   fun {AddDur Partition X} %Ajoute une duree a une partition item
+      case X of nil then nil
+      [] seconds
+      end
+   end
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   fun {StrechMe Partition X} %Diminue/augmente d'un facteur la duree d une liste
+      nil
+   end
+   
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+   fun {Mix P2T Music}
+      
+      {Project.readFile 'wave/animaux/cow.wav'}
+   end
+
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
    Music = {Project.load 'joy.dj.oz'}
    Start
 
