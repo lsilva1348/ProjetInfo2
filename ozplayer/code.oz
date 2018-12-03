@@ -27,15 +27,29 @@ local
    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
    fun {PartitionToTimedList Partition}
-      <partition item>::=
-      <note>
-      |<chord<
-      |<extended note>
-      |<extended chord>
-      |<transformation>
+      case Partition
+      of nil then nil
+      [] H|T then nil
+      end
+   end
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+   fun {Transforme Partition X} %Applique une transformation X a la partition%
+      case X of nil then nil
+      [] Duration then {Duration Partition }
+      end
+   end
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   fun {AddDur Partition X} %Ajoute une duree a une partition item
+      case X of nil then nil
+      [] seconds
+      end
+   end
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   fun {StrechMe Partition X} %Diminue/augmente d'un facteur la duree d une liste
       nil
    end
-
+   
    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
    fun {Mix P2T Music}
@@ -67,5 +81,5 @@ in
    
    % Shows the total time to run your code.
    {Browse {IntToFloat {Time}-Start} / 1000.0}
-   nil
+   
 end
