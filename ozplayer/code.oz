@@ -32,6 +32,7 @@ local
 	 end
       end
 
+<<<<<<< HEAD
       fun {PartitionToTimedList Partition}
 	 nil	 
       end
@@ -51,6 +52,17 @@ local
       end
    
    
+=======
+   fun {PartitionToTimedList Partition}
+      <partition item>::=
+      <note>
+      |<chord<
+      |<extended note>
+      |<extended chord>
+      |<transformation>
+      nil
+   end
+>>>>>>> parent of 6cfe57f... Rajout des fonctions TimeList
 
    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -85,7 +97,12 @@ in
    
    
    % Shows the total time to run your code.
+<<<<<<< HEAD
       {Browse {IntToFloat {Time}-Start} / 1000.0}
    end
    
+=======
+   {Browse {IntToFloat {Time}-Start} / 1000.0}
+   nil
+>>>>>>> parent of 6cfe57f... Rajout des fonctions TimeList
 end

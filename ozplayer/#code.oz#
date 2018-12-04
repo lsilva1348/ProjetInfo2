@@ -3,7 +3,7 @@ local
    [Project] = {Link ['Project2018.ozf']}
    Time = {Link ['x-oz://boot/Time']}.1.getReferenceTime
 
-   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
    % Translate a note to the extended notation.
    fun {NoteToExtended Note}
@@ -27,29 +27,9 @@ local
    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
    fun {PartitionToTimedList Partition}
-      case Partition
-      of nil then nil
-      [] H|T then nil
-      end
+     case 
    end
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-   fun {Transforme Partition X} %Applique une transformation X a la partition%
-      case X of nil then nil
-      [] Duration then {Duration Partition }
-      end
-   end
-   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   fun {AddDur Partition X} %Ajoute une duree a une partition item
-      case X of nil then nil
-      [] seconds
-      end
-   end
-   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   fun {StrechMe Partition X} %Diminue/augmente d'un facteur la duree d une liste
-      nil
-   end
-   
    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
    fun {Mix P2T Music}
@@ -81,8 +61,4 @@ in
    
    % Shows the total time to run your code.
    {Browse {IntToFloat {Time}-Start} / 1000.0}
-<<<<<<< HEAD
-   
-=======
->>>>>>> parent of 6cfe57f... Rajout des fonctions TimeList
 end
