@@ -3,65 +3,69 @@ local
    [Project] = {Link ['Project2018.ozf']}
    Time = {Link ['x-oz://boot/Time']}.1.getReferenceTime
 
-   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-   % Translate a note to the extended notation.
-   fun {NoteToExtended Note}
-      case Note
-      of Name#Octave then
-         note(name:Name octave:Octave sharp:true duration:1.0 instrument:none)
-      [] Atom then
-         case {AtomToString Atom}
-         of [_] then
-            note(name:Atom octave:4 sharp:false duration:1.0 instrument:none)
-         [] [N O] then
-            note(name:{StringToAtom [N]}
-                 octave:{StringToInt [O]}
-                 sharp:false
-                 duration:1.0
-                 instrument: none)
-         end
-      end
-   end
-
-   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-   fun {PartitionToTimedList Partition}
-      case Partition
-      of nil then nil
-      [] H|T then nil
-      end
-   end
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-   fun {Transforme Partition X} %Applique une transformation X a la partition%
-      case X of nil then nil
-      [] Duration then {Duration Partition }
-      end
-   end
-   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   fun {AddDur Partition X} %Ajoute une duree a une partition item
-      case X of nil then nil
-      [] seconds
-      end
-   end
-   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   fun {StrechMe Partition X} %Diminue/augmente d'un facteur la duree d une liste
-      nil
-   end
+   %%%%%%%%%%
+   %Code ICI%
+   %%%%%%%%%%
    
-   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-   fun {Mix P2T Music}
+   local %à trier alphebetiquement nigga
+      NoteToExtended
+      PartitionToTimedList
+      Mix
+   in
       
-      {Project.readFile 'wave/animaux/cow.wav'}
-   end
+   % Translate a note to the extended notation.
+      fun {NoteToExtended Note}
+	 case Note
+	 of Name#Octave then
+	    note(name:Name octave:Octave sharp:true duration:1.0 instrument:none)
+	 [] Atom then
+	    case {AtomToString Atom}
+	    of [_] then
+	       note(name:Atom octave:4 sharp:false duration:1.0 instrument:none)
+	    [] [N O] then
+	       note(name:{StringToAtom [N]}
+		    octave:{StringToInt [O]}
+		    sharp:false		    
+		    duration:1.0
+		    instrument: none)
+	    end
+	 end
+      end
+
+      fun {PartitionToTimedList Partition}
+	 nil	 
+      end
+      
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+
+      fun {Mix P2T Music}
+	 
+      % TODO
+	 
+	 {Project.readFile 'wave/animaux/cow.wav'}
+	 
+      end
+   
+   
 
    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-   Music = {Project.load 'joy.dj.oz'}
-   Start
+      Music = {Project.load 'joy.dj.oz'}
+      
+      Start
+      
 
+
+   
+   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    % Uncomment next line to insert your tests.
    % \insert 'tests.oz'
    % !!! Remove this before submitting.
@@ -79,7 +83,9 @@ in
    % You don't need to modify this.
    {Browse {Project.run Mix PartitionToTimedList Music 'out.wav'}}
    
+   
    % Shows the total time to run your code.
-   {Browse {IntToFloat {Time}-Start} / 1000.0}
+      {Browse {IntToFloat {Time}-Start} / 1000.0}
+   end
    
 end
